@@ -2,8 +2,6 @@
 
 using namespace std;
 
-//при положение, че редицата на Фибоначи започва от 0
-
 int fibonacci_recursion(int n)
 {
 	if (n <= 1) return 0;
@@ -29,8 +27,8 @@ int fibonacci_linear(int n)
 //complexity -> O(n)
 
 //complexity -> O(log n):
-//Ако N e четно => k=n/2 :    F(n) = [2*F(k-1) + F(k)] * F(k);
-//Ако N e нечетно => k=(n+1)/2 :    F(n) = F(k)*F(k) + F(k-1)*F(k-1);
+//If N is even => k=n/2 :    F(n) = [2*F(k-1) + F(k)] * F(k);
+//If N is odd => k=(n+1)/2 :    F(n) = F(k)*F(k) + F(k-1)*F(k-1);
 
 int main()
 {

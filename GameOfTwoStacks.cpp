@@ -130,12 +130,14 @@ int main()
 	int size1 = 0, size2 = 0;
 
 	cin >> games;
+	
+	Lstack<int> stack1, stack2;
 
 	for (int i = 0; i < games; ++i)
 	
 	{
 		cin >> size1 >> size2 >> maxSum;
-		Lstack<int> stack1, stack2;
+		
 
 		int* a1 = new int[size1];
 		for (int i = 0; i < size1; ++i)

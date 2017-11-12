@@ -1,45 +1,41 @@
-#include<iostream>
-#include<stack>
+#include <iostream>
+#include <stack>
 
 using namespace std;
 
+void enterElStack(int size, stack<int> &stack)
+{
+	int* array = new int[size];
+	for (int i = 0; i < size; ++i)
+	{
+		cin >> array[i];
+	}
+	for (int i = size - 1; i >= 0; --i)
+	{
+		stack.push(array[i]);
+	}
+	delete[] array;
+}
 int main()
 {
-	int games = 0, sum = 0, maxSum = 0, elementsPopped = 0;
+	int games = 0, maxSum = 0;
+	int sum, elementsPopped;
 	int size1 = 0, size2 = 0;
 
 	cin >> games;
-	
+
 	stack<int> stack1, stack2;
 
 	for (int i = 0; i < games; ++i)
-	
 	{
 		cin >> size1 >> size2 >> maxSum;
+		elementsPopped = 0;
+		sum = 0;
+
 		
-
-		int* a1 = new int[size1];
-		for (int i = 0; i < size1; ++i)
-		{
-			cin >> a1[i];
-		}
-		for (int i = size1-1; i >= 0; --i)
-		{
-			stack1.push(a1[i]);
-		}
-
-
-		int* a2 = new int[size2];
-		for (int i = 0; i < size2; ++i)
-		{
-			cin >> a2[i];
-		}
-		for (int i = size2-1; i >= 0; --i)
-		{
-			stack2.push(a2[i]);
-		}
-
-
+		enterElStack(size1, stack1);
+		enterElStack(size2, stack2);
+		
 
 		while (!stack1.empty() || !stack2.empty())
 		{
@@ -72,16 +68,13 @@ int main()
 				stack2.pop();
 				elementsPopped++;
 			}
-
 		}
 
 		cout << elementsPopped << endl;
-
-		delete[] a1;
-		delete[] a2;
-
 	}
 
 	system("pause");
 	return 0;
 }
+
+

@@ -222,28 +222,28 @@ int LinkedList<T>::length()
 template <typename T>
 void LinkedList<T>::DeleteDuplicates()
 {
-	IterStart();//start from the beginning of the list (because there is no argument in the used function -> see definition of function IterStart())
-	node<T>* p = Iter();//START and P are pointers to the first node (see definition of function Iter())
+	IterStart();
+	node<T>* p = Iter();
 
-	if (start == NULL) return;//if there are no elements, nothing happens
+	if (start == NULL) return;
 
 	T x = start->inf;
 
-	p = Iter();//P is now pointer to the node after START
+	p = Iter();
 
 	while(p)
 	{
 		while (x == p->inf)
 		{
-			DeleteElem(p, x);//delete duplicate element
-			p = Iter();//change P to be a pointer to the next node, so that the comparison can continue
-			if (p == NULL) return;//check, so that there is no exceptionn thrown
+			DeleteElem(p, x);
+			p = Iter();
+			if (p == NULL) return;
 		}
 
-		x = p->inf;//after deleting all duplicates of an element, we change the value of X and continue checking for duplicates of the new element
-		p = Iter();//change the pointer, so that we can check for duplicates of the next element
+		x = p->inf;
+		p = Iter();
 	}
-	//IMPORTANT! -> We go through the list only once in order to delete the duplicates i.e. we do not go through it a number of times for each element
+	
 }
 
 

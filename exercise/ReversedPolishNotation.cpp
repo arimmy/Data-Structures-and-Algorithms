@@ -37,17 +37,17 @@ bool Lstack<T>::empty() const
 template <typename T>
 void Lstack<T>::copy(node<T>* toCopy)
 {
-	if (toCopy == nullptr)//дъно на рекурсията
+	if (toCopy == nullptr)
 		return;
-	copy(toCopy->next);//въртим, докато стигнем до дъното на стека и после започваме да копираме, т.е. следващият ред
-	push(toCopy->data); //добавямe първия елемент отгоре, а после и следващите, които идват от рекурсията
+	copy(toCopy->next);
+	push(toCopy->data); 
 }
 
 template <typename T>
 void Lstack<T>::copyLstack(const Lstack& other)
 {
-	topNode = nullptr;//подсигуряваме си, че стекът е празен
-	copy(other.topNode);//аргументът е указател
+	topNode = nullptr;
+	copy(other.topNode);
 }
 
 template <typename T>
@@ -178,7 +178,7 @@ int evaluate(string str)
 				case '+': z = x + y; break;
 				case '-': z = x - y; break;
 				case '*': z = x * y; break;
-				case '/': if (y == 0) return 1;//break
+				case '/': if (y == 0) return 1;
 						  else z = x / y; break;
 				case '^': z = (int)pow(x, y); break;
 				case '%': z = (int)x % (int)y; break;
@@ -194,26 +194,6 @@ int evaluate(string str)
 	return z;
 }
 
-void ReversedPolishNotation(string str)
-{
-	string newString;
-	Lstack<int> helper;
-
-	helper.push('(');//in this way we do not check for an empty stack
-
-	int i = 0, j = -1, length = str.size();
-
-	while (i < length)
-	{
-		if (str[i] >= '0' && str[i] <= '9' || str[i] >= 'a' && str[i] <= 'z')
-		{
-			j++;
-			newString[i] = str[i];
-		}
-
-
-	}
-}
 
 int main()
 {
@@ -225,7 +205,6 @@ int main()
 	for (int i = 0; i < n; ++i)
 	{
 		cin >> str;
-		//cin.ignore();
 
 		int result = evaluate(str);
 		cout << result << endl;

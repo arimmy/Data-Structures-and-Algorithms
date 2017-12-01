@@ -167,6 +167,7 @@ int evaluate(string str)
 				z = x + 2 * y + 3 * w;
 			
 			}
+			
 			else
 			{
 				y = helper.pop();
@@ -183,7 +184,7 @@ int evaluate(string str)
 				case '^': z = (int)pow(x, y); break;
 				case '%': z = (int)x % (int)y; break;
 				case 'b': z = (x*x) + y; break;
-			}
+			        }
 			}
 			helper.push(z);
 		}
@@ -199,8 +200,8 @@ int main()
 {
 	string str;
 	int n;
-	cin >> n;
 	
+	cin >> n;
 
 	for (int i = 0; i < n; ++i)
 	{
@@ -210,9 +211,6 @@ int main()
 		cout << result << endl;
 
 	}
-
-	
-
 
 	system("pause");
 	return 0;

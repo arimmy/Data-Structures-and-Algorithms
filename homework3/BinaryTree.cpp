@@ -34,9 +34,6 @@ public:
 	void Create();
 	void Create3(T, BinTree<T>, BinTree<T>);
 	int height(node<T>*);
-	void Level(node<T>*, int);
-	void levelOrderTraversal(node<T>*);
-	bool isBST(node<T>*);
 };
 
 template <typename T>
@@ -193,79 +190,20 @@ int BinTree<T>::height(node<T>* root)
 		int leftHeight = height(root->left);
 		int rightHeight = height(root->right);
 
-		if (leftHeight > rightHeight) return (leftHeight+1);
+		if (leftHeight > rightHeight) return (leftHeight + 1);
 
-		else return (rightHeight+1);
+		else return (rightHeight + 1);
 	}
 }
-
-template <typename T>
-void Level(node<T>* root, int level)
-{
-	if (root == NULL) return;
-		
-	if (level == 1) return root->data;
-		
-	else if (level > 1)
-	{
-		Level(root->left, level - 1);
-		Level(root->right, level - 1);
-	}
-}
-
-template <typename T>
-void levelOrderTraversal(node<T>* root)
-{
-	int length = height(root);
-
-	for (int i = 1; i <= length; ++i)
-	{
-		Level(root, i);
-	}	
-}
-
-template <typename T>
-bool isBST(node<T>* root)
-{
-	int recent;
-	if (root == NULL) return true;
-
-	bool flag = isBST(root->left);
-
-	if (flag) {
-		if (recent >= root->inf)
-			return false;
-		else
-			recent = root->inf;
-	}
-
-	if (flag)
-		flag = isBST(root->right);
-
-	return flag;
-}
-
-//template <typename T>
-//	bool isBST(node<T>* root, int min, int max) {
-//		if (root == NULL) return true;
-//
-//		if (root->inf <= min || root->inf >= max)
-//			return false;
-//
-//		return isBST(root.left, min, root.data) && isBST(root.right, root.data, max));
-//
-//	}
 
 int main()
 {
 	BinTree<int> binTree;
 	binTree.Create();
 	binTree.print();
-	cout << endl;
-	int heigth;
-	heigth = binTree.height(binTree.GetRoot());
-	cout << heigth << endl;
-	//binTree.levelOrderTraversal(binTree.GetRoot());
+	int height;
+	height = binTree.height(binTree.GetRoot());
+	cout << height << endl;
 
 	system("pause");
 	return 0;

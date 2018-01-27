@@ -191,10 +191,8 @@ int newGraph(graph<int>& graph, int& number)
 	while (count < number)
 	{
 		count++;
-		int firstCity;
-		cin >> firstCity;
-		int secondCity;
-		cin >> secondCity;
+		int firstCity, secondCity;
+		cin >> firstCity >> secondCity;
 
 		if (!member(firstCity, list))
 		{
